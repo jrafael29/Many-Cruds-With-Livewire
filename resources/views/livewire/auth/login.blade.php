@@ -21,7 +21,7 @@
         
                 <div class="mb-3">
                     <label class="form-label" for="password">Senha:</label>
-                    <input style="outline: 0 !important; border: 0 !important;" class="form-control bg-transparent text-muted @error('password') is-invalid @enderror" id="password"  type="password" name="password" placeholder="********">
+                    <input style="outline: 0 !important; border: 0 !important;" class="form-control bg-transparent text-muted @error('password') is-invalid @enderror" id="password"  type="password" name="password" placeholder="••••••••">
                     @error('password')
                         <div class="invalid-feedback">
                             {{$message}}
