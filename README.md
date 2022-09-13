@@ -1,4 +1,11 @@
 <h1> Em construção... </h1>
+
+Sistema feito no intuito de praticar e reforçar meus conhecimentos com o Laravel Livewire.
+
+- Crud
+- Login Social
+- Uploads de arquivos
+
 <h3> Login </h3>
 
 <img src="./public/assets/images/tela-login.png" />
