@@ -3,4 +3,4 @@
 
 <img src="./public/assets/images/tela-login.png" />
 
-    Tela de login, com a possibiidade de autenticação social, usando as credenciais do Google / Github.
+    <p>Tela de login, com a possibiidade de autenticação social, usando as credenciais do Google / Github.</p>
