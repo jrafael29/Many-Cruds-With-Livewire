@@ -28,11 +28,33 @@ Route::get('/auth/google/callback', function(){
         'name' => $googleUser->name,
         'password' => bcrypt(Str::random(10)),
     ]);
-    $user->photo = $googleUser->avatar;
-    $user->save();
+    if(!$user->photo){
+        $user->photo = $googleUser->avatar;
+        $user->save();
+    }
 
     auth()->login($user);
 
+    return redirect()->route('home');
+});
+
+Route::get('/auth/github/redirect', function(){
+    return Socialite::driver('github')->redirect();
+})->name('login.github.redirect');
+
+Route::get('/auth/github/callback', function(){
+    $githubUser =  Socialite::driver('github')->user();
+
+    $user = User::query()->firstOrCreate(['email' => $githubUser->email], [
+        'name' => $githubUser->name,
+        'password' => bcrypt(10),
+    ]);
+    if(!$user->photo){
+        $user->photo = $githubUser->avatar;
+        $user->save();
+    }
+
+    auth()->login($user);
     return redirect()->route('home');
 });
 

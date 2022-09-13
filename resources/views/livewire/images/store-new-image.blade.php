@@ -4,7 +4,7 @@
     
     <div class="form">
         <div class="group w-100 mb-3">
-            <label for="newimage" class="btn btn-outline-dark w-100">Selecione</label>
+            <label for="newimage" class="btn btn-outline-dark w-100 text-light">Selecione</label>
             <input class="d-none" type="file" name="" wire:model="photo" id="newimage">
         </div>
 
