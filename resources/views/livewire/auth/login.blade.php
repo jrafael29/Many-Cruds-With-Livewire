@@ -1,17 +1,20 @@
 <div class="mt-4">
     @section('content')
         @if(session('failed'))
-            <div class="alert alert-danger m-auto col-12 col-md-4 col-sm-6">
+            <div class="alert alert-danger m-auto col-12 col-md-4 col-sm-6 mb-3">
                 {{session('failed')}}
             </div>
-                
+        @elseif(session('password'))
+            <div class="alert alert-success m-auto col-12 col-md-4 col-sm-6 mb-3">
+                {{session('password')}}
+            </div>
         @endif
         <div class="d-flex justify-content-center p-2 ">
-            <form action="{{route('attemptLogin')}}" method="post" class="col-12 col-md-4 col-sm-6">
+            <form action="{{route('attemptLogin')}}" method="post" class="col-12 col-md-6 col-lg-5 ">
                 @csrf
                 <div class="mb-3">
                     <label class="form-label" for="email">Email:</label>
-                    <input style="outline: 0 !important; border: 0 !important;" class="form-control bg-transparent text-muted @error('email') is-invalid @enderror"  type="email" id="email" name="email" placeholder="foo@bar.com">
+                    <input style="outline: 0 !important; border: 0 !important;" class="form-control bg-transparent text-muted @error('email') is-invalid @enderror"  type="email" id="email" autofocus autocomplete="off" name="email" placeholder="foo@bar.com">
                     @error('email')
                         <div class="invalid-feedback">
                             {{$message}}
@@ -31,6 +34,10 @@
         
                 <div class="mb-3">
                     <button class="w-100 btn btn-success">Logar</button>
+                </div>
+
+                <div class="d-flex justify-content-end mb-3 ">
+                    <a class="text-decoration-none" href="{{route('forgot-password')}}">Esqueci minha senha</a>
                 </div>
 
                 <div class="py-3 border-top gap-3 d-flex justify-content-center">

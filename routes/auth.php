@@ -1,13 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
 use App\Http\Livewire\Auth\Register as Register;
 use App\Http\Livewire\Auth\Login as Login;
 use App\Http\Controllers\Auth\AuthController as Auth;
-use App\Models\User;
-use Laravel\Socialite\Facades\Socialite;
-use Illuminate\Support\Str;
-
+use App\Http\Controllers\Auth\ResetPassword;
+use App\Http\Livewire\Auth\ForgotPassword as Forgot;
+use Illuminate\Http\Request;
 
 Route::get('/register', Register::class)->name('register');
 Route::post('/register', [Auth::class, 'register'])->name('storeRegister');
@@ -58,3 +60,14 @@ Route::get('/auth/github/callback', function(){
     return redirect()->route('home');
 });
 
+Route::get('/forgot-password', function(){
+    return view('auth.forgot-password');
+})->middleware('guest')->name('forgot-password');
+
+
+Route::get('/reset-password/{token}', function ($token, Request $request) {
+    $email = $request->input('email');
+    return view('auth.reset-password', ['token' => $token, 'email' => $email]);
+})->middleware('guest')->name('password.reset');
+
+Route::post('/reset-password', [ResetPassword::class, 'index'])->name('reset-password-post');

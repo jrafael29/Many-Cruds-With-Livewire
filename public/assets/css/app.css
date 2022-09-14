@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap');
+
+
+
+
+#todo-list-area::-webkit-scrollbar{
+    width: 5px;
+}
+
+#todo-list-area::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+
+#todo-list-area::-webkit-scrollbar-thumb {
+    background: #888; 
+  }

@@ -1,7 +1,7 @@
 <div class="">
     @section('content')
     <div class="d-flex justify-content-center">
-        <div class="col-6 p-3 ">
+        <div class="col-12 col-md-6 col-lg-5 p-3 ">
             <form action="{{route('storeRegister')}}" method="post">
                 @csrf
                 <div class="mb-3">

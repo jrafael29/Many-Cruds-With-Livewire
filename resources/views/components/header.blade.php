@@ -44,6 +44,10 @@
                         <div class="p-2"> Registro </div>
                     </a>
 
+                    <a class="nav-link text-light" href="{{route('forgot-password')}}">
+                        <div class="p-2"> Recuperar senha </div>
+                    </a>
+
                 @endif
             </div>
           </div>
